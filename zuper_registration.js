@@ -20,11 +20,11 @@ submitBtnUI.onclick = function () {
     console.log(users)
     
     // validate information **commentet out due to error**
-    // if(firstNameUI.length == 0 || lastNameUI.length == 0 || addressUI.length == 0 || usernameUI.length == 0
-        //  || passwordUI.length == 0 || passwordUI.length > 7 || checkboxUI.checked == false) {
-        //  alert ("hmmn, something went wrong. Please fill out all fields in the signup form :)")
-        // }
-        // return false
+    if(firstNameUI.length == 0 || lastNameUI.length == 0 || addressUI.length == 0 || usernameUI.length == 0
+         || passwordUI.length == 0 || passwordUI.length > 7 || checkboxUI.checked == false) {
+         alert ("hmmn, something went wrong. Please fill out all fields in the signup form :)")
+        
+        return false}
 
     // If the user has agreed to the terms and conditions,
     // I create a new user object from his input
@@ -53,3 +53,4 @@ submitBtnUI.onclick = function () {
     
         
 }
+console.log(users);
