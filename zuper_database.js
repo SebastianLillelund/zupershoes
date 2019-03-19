@@ -1,0 +1,1 @@
+var users = [new User("Henrik", "Thorn", "thorn", "abc123")]

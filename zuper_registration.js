@@ -12,7 +12,7 @@ const submitBtnUI = document.getElementById('submit-btn')
 
 
 
-/ To respond to the users click, I make use of the onclick property
+// To respond to the users click, I make use of the onclick property
 // of the submit button and attach a function to it
 submitBtnUI.onclick = function () {
 
