@@ -1,13 +1,13 @@
 // Because I will have to perform multiple actions with the various
 // elements of our HTML form, I create a binding for each input element
 // so I will not have to use the 'document' object each time
-const firstNameUI = document.getElementById('firstName')
-const lastNameUI = document.getElementById('lastName')
-const adressUI = document.getElementById('adress')
-const usernameUI = document.getElementById('userName') 
-const passwordUI = document.getElementById('userPassword')
-const checkboxUI = document.getElementById('terms')
-const submitBtnUI = document.getElementById('submit-btn')
+const firstNameUI = document.getElementById('firstName').value;
+const lastNameUI = document.getElementById('lastName').value;
+const addressUI = document.getElementById('address').value;
+const usernameUI = document.getElementById('userName').value; 
+const passwordUI = document.getElementById('userPassword').value;
+const checkboxUI = document.getElementById('terms');
+const submitBtnUI = document.getElementById('submit-btn');
 
 
 
@@ -19,24 +19,16 @@ submitBtnUI.onclick = function () {
     console.log('clicked')
     console.log(users)
     
-    // validate firstName it not blank
-    if(firstNameUI.value.length == 0) {
-         document.getElementById('resultSpan').innertext = 'Please provide username & password'
-         return false
-        }
-
-    //check if the password is >8 digits:
-    if (passwordUI.value.length < 8) {
-            document.getElementById('password').innertext = "Password too short, please have at least 8 characters'"
-            return false
-        }
-
-    
-    
+    // validate information **commentet out due to error**
+    // if(firstNameUI.length == 0 || lastNameUI.length == 0 || addressUI.length == 0 || usernameUI.length == 0
+        //  || passwordUI.length == 0 || passwordUI.length > 7 || checkboxUI.checked == false) {
+        //  alert ("hmmn, something went wrong. Please fill out all fields in the signup form :)")
+        // }
+        // return false
 
     // If the user has agreed to the terms and conditions,
     // I create a new user object from his input
-    if(checkboxUI.checked) {
+    if(checkboxUI.checked == true) {
         var firstName = firstNameUI.value
         var lastName = lastNameUI.value
         var username = usernameUI.value
