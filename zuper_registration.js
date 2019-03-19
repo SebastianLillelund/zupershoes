@@ -31,6 +31,9 @@ if (firstNameUI.value.length == 0) {
     alert ("hmmn, something went wrong. Please create a username for your profile")
     return false;
 } else if (passwordUI.value.length == 0) {
+    alert ("hmmn, something went wrong. Your profile needs a password")
+    return false;
+} else if (passwordUI.value.length <= 7) {
     alert ("hmmn, something went wrong. You password needs to be 8 characters or more")
     return false;
 } else if (!checkboxUI.checked) {
@@ -59,7 +62,7 @@ if (firstNameUI.value.length == 0) {
         console.log(users)
 
         //redirect user to login page
-       // window.location.assign('./login.html')
+       window.location.assign('./zuper_login.html')
     }
 
 
