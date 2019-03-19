@@ -26,4 +26,11 @@ if(firstNameUI.value.length === 0) {
 
     console.log('clicked')
     console.log(users)
+
+        //check if the password is >8 digits:
+
+        if (passwordUI.value.length < 8) {
+            document.getElementById('password').innertext = "Password too short, please have at least 8 characters'"
+            return false
+        }
 }
