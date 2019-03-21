@@ -62,7 +62,7 @@ if (firstNameUI.value.length == 0) {
         console.log(users)
 
         //redirect user to login page
-       window.location.assign('./zuper_login.html')
+      // window.location.assign('./zuper_login.html')
     }
 
 
