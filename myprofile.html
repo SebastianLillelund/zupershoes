@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="zuper_registration.css" rel="stylesheet" type="text/css"/>
+    <title>Myprofile | Zuper-shoes.com</title>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){ 
+    // your code goes here
+    document.getElementById("user-name-label").innerHTML = loggedInUser.firstName;
+    document.getElementById("user-lastName-label").innerHTML = loggedInUser.lastName;
+    document.getElementById("user-address-label").innerHTML = loggedInUser.address;
+    document.getElementById("user-userName-label").innerHTML = loggedInUser.userName;
+    
+}, false);
+</script>
+</head>
+<div class="center">
+
+
+<body>
+    <h1> Zuper Shoes </h1>
+
+    <h2> Create your profile </h2>
+
+    <div class="formDiv">
+        <span>First Name:</span>
+        <span id="user-name-label"></span>
+    </div>
+
+    <div class="formDiv">
+        <span>Last Name:</span>
+        <span id="user-lastName-label"></span>
+    </div>
+
+     <div class="formDiv">
+        <span>Address:</span>
+        <span id="user-address-label"></span>
+    </div>
+
+    <div class="formDiv">
+        <span>Username:</span>
+        <span id="user-userName-label"></span>
+    </div>
+<h2><b>History</b></h2>
+ 
+
+    
+
+
+
+
+
+<script src="./zuper_users.js"></script>
+<script src="./zuper_database.js"></script>
+<script src="./zuper_registration.js"></script>
+
+
+</body>
+</html>
