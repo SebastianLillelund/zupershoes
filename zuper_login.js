@@ -53,7 +53,7 @@ for(var i = 0; i < users.length; i++) {
         
         alert ("Login successfully");
     // Redirecting to other page.
-   // window.location = "zuper_indexPage.html";
+   window.location = "zuper_indexPage.html";
     return false;}
 
 } alert ("Hmn, something went wrong. Please type in your username and password");
