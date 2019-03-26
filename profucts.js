@@ -7,16 +7,18 @@ const productGenderID = document.getElementById('productGender');
 const productBrandID = document.getElementById('productBrand');
 const productPictureID = document.getElementById('productPicture');
 
+const submitBtnUI = document.getElementById('myButton');
 
-var product = [];
+
+var products = [];
 submitBtnUI.onclick = function () {
-    product.push(new ProductID(productNameID, productDescriptionID, productColorID, productPriceID, productQuanityID, productGenderID, productBrandID, productPictureID)) ;
+    products.push(new ProductID(productNameID, productDescriptionID, productColorID, productPriceID, productQuanityID, productGenderID, productBrandID, productPictureID)) ;
     
     localStorage.setItem('products', JSON.stringify(products));
 
 
 }
-
+console.log(ProductID);
 
 
 /* fra registration..
@@ -29,11 +31,6 @@ const passwordUI = document.getElementById('userPassword');
 const checkboxUI = document.getElementById('terms');
 const submitBtnUI = document.getElementById('submit-btn');
 
-var firstName = firstNameUI.value
-var lastName = lastNameUI.value
-var address = addressUI.value
-var username = usernameUI.value
-var password = passwordUI.value
 
 users.push(new User(firstName, lastName, address, username, password)) ;
     
