@@ -16,7 +16,6 @@ const submitBtnUI = document.getElementById('submit-btn');
 submitBtnUI.onclick = function () {
 
     console.log('clicked')
-    console.log("users1 = " +users)
     
     // validate information 
 if (firstNameUI.value.length == 0) {
@@ -63,9 +62,7 @@ if (firstNameUI.value.length == 0) {
     
 	    localStorage.setItem('users', JSON.stringify(users));
         //redirect user to login page
-     //window.location.assign('./zuper_login.html')
-       console.log("User = " + User);
-       console.log("users2 = " + users);
+     window.location.assign('./zuper_login.html')
     }    
         
 }
