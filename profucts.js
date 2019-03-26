@@ -18,7 +18,7 @@ submitBtnUI.onclick = function () {
 
 
 }
-console.log(ProductID);
+console.log(products);
 
 
 /* fra registration..
