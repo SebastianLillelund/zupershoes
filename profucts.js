@@ -22,18 +22,5 @@ console.log(products);
 
 
 /* fra registration..
-
-const firstNameUI = document.getElementById('firstName');
-const lastNameUI = document.getElementById('lastName');
-const addressUI = document.getElementById('address');
-const usernameUI = document.getElementById('userName'); 
-const passwordUI = document.getElementById('userPassword');
-const checkboxUI = document.getElementById('terms');
-const submitBtnUI = document.getElementById('submit-btn');
-
-
-users.push(new User(firstName, lastName, address, username, password)) ;
-    
-        localStorage.setItem('users', JSON.stringify(users));
-        
+NEXT step: give values to each product in order to save as ProductID in the above function.
         */
