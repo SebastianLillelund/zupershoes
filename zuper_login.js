@@ -15,14 +15,36 @@ if (usernameInput.value.length == 0) {
     alert ("hmmn, something went wrong. Please enter your username")
     return false;
 } else if (passwordInput.value.length == 0) {
+    console.log(usernameUI + passwordUI);
     alert ("hmmn, something went wrong. Please enter your password")
     return false;
 }
 
 
 //loging in
-//Loop through users. Atm. I hardcoded a user...
-if (usernameInput.value == "Seb" && passwordInput.value == "password"){
+var User = [];
+if (localStorage.getItem('users') === null) {
+    users = [];
+  } else {
+    users = JSON.parse(localStorage.getItem('users'));
+    for (let i = 0; i < users.length; i++) {
+      users[i] = new User(users[i].firstName, users[i].lastName, user[i].address, users[i].username, users[i].password);
+    }
+  };
+
+
+// We loop through all our users and return true if we find a match
+for(var i = 0; i < users.length; i++) {
+
+    // Bind user to a variable for easy use
+    var user = users[i];
+   
+    if(user.username == inputUsername.value && user.password == passwordInput) {
+        alert ("Login successfully")};
+
+        
+//Loop through users.
+if (usernameInput.value == "userName" && passwordInput.value == "userPassword"){
 alert ("Login successfully");
 
 // Redirecting to other page.
@@ -32,6 +54,8 @@ window.location = "zuper_indexPage.html"
 else{
     alert ("Hmn, something went wrong. Please type in your username and password")
     return false;
+}
+
 }
 
 }

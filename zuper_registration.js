@@ -1,6 +1,7 @@
 // Because I will have to perform multiple actions with the various
 // elements of our HTML form, I create a binding for each input element
 // so I will not have to use the 'document' object each time
+
 const firstNameUI = document.getElementById('firstName');
 const lastNameUI = document.getElementById('lastName');
 const addressUI = document.getElementById('address');
@@ -49,7 +50,7 @@ if (firstNameUI.value.length == 0) {
         var address = addressUI.value
         var username = usernameUI.value
         var password = passwordUI.value
-
+      
         /* Not letting the same username be used twice (unique users)
        for (let i=0; i< username.length; i++) {
             if usernameUI.value === username[i].username) {
@@ -58,15 +59,14 @@ if (firstNameUI.value.length == 0) {
         }
         */
         // To store the user I add him to the array of users (DB)
-        users.push(new User(firstName, lastName, address, username, password))
+        users.push(new User(firstName, lastName, address, username, password)) ;
         console.log(users)
-
+	    localStorage.setItem('users', JSON.stringify(users));
         //redirect user to login page
-      // window.location.assign('./zuper_login.html')
+     //window.location.assign('./zuper_login.html')
+       console.log(User);
     }
-
 
     
         
 }
-console.log(users);
