@@ -8,54 +8,15 @@
     <link href="zuper_registration.css" rel="stylesheet" type="text/css"/>
     <title>Myprofile | Zuper-shoes.com</title>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){ 
-    // your code goes here
-    document.getElementById("user-name-label").innerHTML = loggedInUser.firstName;
-    document.getElementById("user-lastName-label").innerHTML = loggedInUser.lastName;
-    document.getElementById("user-address-label").innerHTML = loggedInUser.address;
-    document.getElementById("user-userName-label").innerHTML = loggedInUser.userName;
-    
-}, false);
-</script>
-</head>
+
 <div class="center">
 
         <header>
             <h1> Zuper Shoes </h1>
         
             <h2> <i> Because your feet are worth it! </i> </h2>
-        
-        <header>
-        
-        <head>
-        <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            }
-                        
-        li {
-            float: left;
-            }
-                        
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            }
-                        
-            li a:hover {
-            background-color: #111;
-         }
-        </style>
-        </head>
-        
+
+ 
         <body>               
         <ul>
         <li><a class="active" href="./zuper_indexPage.html">Home</a></li>
@@ -72,7 +33,7 @@
 
     <div class="formDiv">
         <span>First Name:</span>
-        <span id="user-name-label"></span>
+        <span id="firstname-label"></span>
     </div>
 
     <div class="formDiv">
@@ -100,7 +61,7 @@
 
 <script src="./zuper_users.js"></script>
 <script src="./zuper_database.js"></script>
-<script src="./zuper_registration.js"></script>
+<script src="./myprofile.js"></script>
 
 
 </body>

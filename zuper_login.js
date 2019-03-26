@@ -44,9 +44,16 @@ for(var i = 0; i < users.length; i++) {
     console.log( "userName: " + user.userName + ". usernameInput: "+usernameInput.value)
     console.log( "userPassword: " + user.userPassword + ". passwordInput: "+usernameInput.value)
     if(user.userName == usernameInput.value && user.userPassword == passwordInput.value) {
+        console.log(user);
+        
+        
+        //saving the logged in user:
+        localStorage.setItem("loggedUser", JSON.stringify(user));
+        
+        
         alert ("Login successfully");
     // Redirecting to other page.
-    window.location = "zuper_indexPage.html";
+   // window.location = "zuper_indexPage.html";
     return false;}
 
 } alert ("Hmn, something went wrong. Please type in your username and password");
