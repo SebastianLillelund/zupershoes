@@ -13,14 +13,14 @@ class ProductID {
 };
 
 var products = [
-    new ProductID("Adida", "description", ["red", "blue", "black"], 200 + " DKK", 1, "gender", "brand", "./pics/jeans3.jpg", ["41", "42", "43"]), 
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 230 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 139.95 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 730 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 645 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 430 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 399 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"]),
-    new ProductID("Name2", "description2", ["red", "blue", "black"], 499 + " DKK", 1, "gender2", "brand2", "./pics/jeans3.jpg", ["41", "42", "43"])
+    new ProductID("Gazelle", "Classic runners", ["white", "blue"], 200 + " DKK", 1, "Male", "Adidas", "./pics/herre2.png", ["41", "42", "43", "44"]), 
+    new ProductID("UltraBoost", "GoT special editions", ["white", "black"], 230 + " DKK", 1, "Male", "Adidas", "./pics/herre0.png", ["41", "42", "43"]),
+    new ProductID("Daytona DMX", "Sporty fashion sneaks", ["white", "blue", "black"], 139.95 + " DKK", 1, "Female", "Reebok", "./pics/dame0.png", ["37", "38"]),
+    new ProductID("Daytona DMX", "Special Edition", ["white", "black"], 730 + " DKK", 1, "Female", "Reebok", "./pics/dame1.png", ["36", "37", "39"]),
+    new ProductID("UltraBoost", "Black 'n' White Edition", ["white", "black"], 645 + " DKK", 1, "Male", "Adidas", "./pics/herre1.png", ["37"]),
+    new ProductID("Stan Smith", "A classic!", ["white", "blue"], 430 + " DKK", 1, "Male", "Adidas", "./pics/herre3.png", ["41", "42", "43"]),
+    new ProductID("NMD R1", "Limited supply", ["white", "blue", "black"], 399 + " DKK", 1, "Male", "Adidas", "./pics/herre4.png", ["44", "45", "47"]),
+    new ProductID("A.R. Trainer", "Newly released runners", ["blue", "black"], 499 + " DKK", 1, "Female", "Adidas", "./pics/dame2.png", ["35", "37", "39"])
 ];
 
 // We loop through each product (in the array) and append the correct product attributions to the html-snippet - to be pushed to the html site.
@@ -31,8 +31,7 @@ for (var i = 0; i<products.length; i++) {
     for (var j = 0; j<products[i].productSize.length; j++) {
     sizeHtml +=` 
     <option value="size${j+1}"> "${products[i].productSize[j]}" </option>`;
- 
-};
+}
     
     // looping through the color-array within the array. Inception! <3
     var colorHtml = "";
@@ -45,11 +44,13 @@ for (var i = 0; i<products.length; i++) {
 
     }
     var html = ` <div class="card">
+    
     <img src=${products[i].productPicture} alt="Adidas UltraBoost" style="width:100%">
     <h1>${products[i].productName}</h1>
     <h2>${products[i].productBrand}</h2>
     <p class="price">${products[i].productPrice}</p>
     <p>${products[i].productDescription}</p>
+    <p>${products[i].productGender}</p>
 
     <div class="color-choose">
                 ${colorHtml}
@@ -64,6 +65,7 @@ for (var i = 0; i<products.length; i++) {
               <p><button id="myButton" class="float-left submit-button" >Add to cart</button>
               </p>
             </div>
+                
 `;
 // Creating a container and appending the html var. above into the products.html after beginning.
 var container = document.getElementById("productsContainer");
@@ -89,3 +91,4 @@ name="color-${i}" value="${products[i].productColor[u]}">
 // the labels "for" loop triggers the radio-buttons unique ID number to be checked. 
 
 ------------------------------------*/ 
+

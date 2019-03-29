@@ -64,8 +64,8 @@
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
 }
 
-.color-choose input[type="radio"].red + label span {
-  background-color: #C91524;
+.color-choose input[type="radio"].white + label span {
+  background-color: rgb(255, 255, 255);
 }
 .color-choose input[type="radio"].blue + label span {
   background-color: #314780;
