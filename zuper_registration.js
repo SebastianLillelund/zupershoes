@@ -1,6 +1,4 @@
-// Because I will have to perform multiple actions with the various
-// elements of our HTML form, I create a binding for each input element
-// so I will not have to use the 'document' object each time
+// We create a binding for each input element so we don't have to use the 'document' object each time
 
 const firstNameUI = document.getElementById('firstName');
 const lastNameUI = document.getElementById('lastName');
@@ -11,13 +9,10 @@ const checkboxUI = document.getElementById('terms');
 const submitBtnUI = document.getElementById('submit-btn');
 
 
-// To respond to the users click, I make use of the onclick property
-// of the submit button and attach a function to it
+// To respond to clicks = we make use of the onclick property triggering a function.
 submitBtnUI.onclick = function () {
 
-    console.log('clicked')
-    
-    // validate information 
+    // We validate input information as non-empty values. Returning alerts if the user missed an input field // if the password is less than 8 characters.
 if (firstNameUI.value.length == 0) {
     alert ("hmmn, something went wrong. Please fill out your first name")
     return false;
@@ -41,8 +36,7 @@ if (firstNameUI.value.length == 0) {
     return false;
 } 
 
-    // If the user has agreed to the terms and conditions,
-    // I create a new user object from his input
+    // If checked (agreed to the terms and conditions) = create a new user object with the input information.
     if(checkboxUI.checked == true) {
         var firstName = firstNameUI.value
         var lastName = lastNameUI.value
@@ -57,7 +51,7 @@ if (firstNameUI.value.length == 0) {
             } return false
         }
         */
-        // To store the user I add him to the array of users
+        // To store the user we add him to the array of users
         users.push(new User(firstName, lastName, address, username, password)) ;
     
 	    localStorage.setItem('users', JSON.stringify(users));
