@@ -1,9 +1,18 @@
+/* # triggers ID's // . triggers classes */
+#productsContainer {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
   margin: auto;
   text-align: center;
   font-family: arial;
+  float: left;
+  margin: 15px;
+  width: 20%;
+
 }
 
 .price {
@@ -63,8 +72,14 @@
 .color-choose input[type="radio"]#black + label span {
   background-color: #323232;
 }
-
+/*
 .color-choose input[type="radio"]:checked + label span {
+  background-image: url(./pics/check-icn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.shoeColor.checked {
   background-image: url(./pics/check-icn.svg);
   background-repeat: no-repeat;
   background-position: center;
