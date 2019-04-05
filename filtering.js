@@ -7,7 +7,7 @@ filterBlue.onclick = function () {
 var colorFiltering = products.filter(function (color) {
  return products.productColor === "blue";
   })
-  */
+  
 
 
 var updateFilter = document.getElementById("filterBlue");
@@ -27,7 +27,7 @@ updateFilter.onclick = function(){
     renderDOM(selectedColor)
 };
 
-
+*/
 
 
 

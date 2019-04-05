@@ -1,5 +1,6 @@
-class ProductID {
-    constructor(productName, productDescription, productColor, productPrice, productQuantity, productGender, productBrand, productPicture, productSize) {
+// creating product class:
+class Product {
+    constructor(productName, productDescription, productColor, productPrice, productQuantity, productGender, productBrand, productPicture, productSize, productId) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productColor = productColor;
@@ -9,20 +10,23 @@ class ProductID {
         this.productBrand = productBrand;
         this.productPicture = productPicture;
         this.productSize = productSize;
+        this.productId = productId;
     }
 };
 
 var products = [
-    new ProductID("Gazelle", "Classic runners", ["white", "blue"], 200 + " DKK", 1, "Male", "Adidas", "./pics/herre2.png", ["41", "42", "43", "44"]), 
-    new ProductID("UltraBoost", "GoT special editions", ["white", "black"], 230 + " DKK", 1, "Male", "Adidas", "./pics/herre0.png", ["41", "42", "43"]),
-    new ProductID("Daytona DMX", "Sporty fashion sneaks", ["white", "blue", "black"], 139.95 + " DKK", 1, "Female", "Reebok", "./pics/dame0.png", ["37", "38"]),
-    new ProductID("Daytona DMX", "Special Edition", ["white", "black"], 730 + " DKK", 1, "Female", "Reebok", "./pics/dame1.png", ["36", "37", "39"]),
-    new ProductID("UltraBoost", "Black 'n' White Edition", ["white", "black"], 645 + " DKK", 1, "Male", "Adidas", "./pics/herre1.png", ["37"]),
-    new ProductID("Stan Smith", "A classic!", ["white", "blue"], 430 + " DKK", 1, "Male", "Adidas", "./pics/herre3.png", ["41", "42", "43"]),
-    new ProductID("NMD R1", "Limited supply", ["white", "blue", "black"], 399 + " DKK", 1, "Male", "Adidas", "./pics/herre4.png", ["44", "45", "47"]),
-    new ProductID("A.R. Trainer", "Newly released runners", ["blue", "black"], 499 + " DKK", 1, "Female", "Adidas", "./pics/dame2.png", ["35", "37", "39"])
+    new Product("Gazelle", "Classic runners", ["white", "blue"], 200 + " DKK", 1, "Male", "Adidas", "./pics/herre2.png", ["41", "42", "43", "44"], 1), 
+    new Product("UltraBoost", "GoT special editions", ["white", "black"], 230 + " DKK", 1, "Male", "Adidas", "./pics/herre0.png", ["41", "42", "43"], 2),
+    new Product("Daytona DMX", "Sporty fashion sneaks", ["white", "blue", "black"], 139.95 + " DKK", 1, "Female", "Reebok", "./pics/dame0.png", ["37", "38"], 3),
+    new Product("Daytona DMX", "Special Edition", ["white", "black"], 730 + " DKK", 1, "Female", "Reebok", "./pics/dame1.png", ["36", "37", "39"], 4),
+    new Product("UltraBoost", "Black 'n' White Edition", ["white", "black"], 645 + " DKK", 1, "Male", "Adidas", "./pics/herre1.png", ["37"], 5),
+    new Product("Stan Smith", "A classic!", ["white", "blue"], 430 + " DKK", 1, "Male", "Adidas", "./pics/herre3.png", ["41", "42", "43"], 6),
+    new Product("NMD R1", "Limited supply", ["white", "blue", "black"], 399 + " DKK", 1, "Male", "Adidas", "./pics/herre4.png", ["44", "45", "47"], 7),
+    new Product("A.R. Trainer", "Newly released runners", ["blue", "black"], 499 + " DKK", 1, "Female", "Adidas", "./pics/dame2.png", ["35", "37", "39"], 8)
 ];
 
+// --------- 2 ---------
+// Creating html sections for each product:
 // We loop through each product (in the array) and append the correct product attributions to the html-snippet - to be pushed to the html site.
 for (var i = 0; i<products.length; i++) {
     
@@ -61,8 +65,7 @@ for (var i = 0; i<products.length; i++) {
     ${sizeHtml}
     </select>
   </div>
-
-              <p><button id="myButton" class="float-left submit-button" >Add to cart</button>
+              <button class="add-cart-btn" data-id="${this.id}">Add to Cart</button>
               </p>
             </div>
                 
@@ -71,6 +74,30 @@ for (var i = 0; i<products.length; i++) {
 var container = document.getElementById("productsContainer");
 container.insertAdjacentHTML('beforeend', html);
 }
+
+// ------- 3 -------
+// Create functionalities for our product class
+
+// Create a function to get the most recent list of products - enables us to load them by using "getProducts".
+function getProducts(){
+  return products
+;}
+
+// Load the products - hvorfor skal vi have denne? **!!**
+//loadProducts();
+
+
+// Create a function to find a product/item based on it's ID
+// The function should take both the array and ID as inputs
+const findProductsById = (productId) => {
+  // find method - callback method that 
+  const product = products.find((product)=> {
+          return product.id === productId
+  })
+  return product
+};
+
+
 
 
 
