@@ -14,7 +14,7 @@ class Product {
     }
 };
 
-var products = [
+const products = [
     new Product("Gazelle", "Classic runners", ["white", "blue"], 200 + " DKK", 1, "Male", "Adidas", "./pics/herre2.png", ["41", "42", "43", "44"], 1), 
     new Product("UltraBoost", "GoT special editions", ["white", "black"], 230 + " DKK", 1, "Male", "Adidas", "./pics/herre0.png", ["41", "42", "43"], 2),
     new Product("Daytona DMX", "Sporty fashion sneaks", ["white", "blue", "black"], 139.95 + " DKK", 1, "Female", "Reebok", "./pics/dame0.png", ["37", "38"], 3),
@@ -34,7 +34,7 @@ for (var i = 0; i<products.length; i++) {
     var sizeHtml = "";
     for (var j = 0; j<products[i].productSize.length; j++) {
     sizeHtml +=` 
-    <option value="size${j+1}"> "${products[i].productSize[j]}" </option>`;
+    <option value="${products[i].productSize[j]}"> "${products[i].productSize[j]}" </option>`;
 }
     
     // looping through the color-array within the array. Inception! <3
@@ -50,7 +50,7 @@ for (var i = 0; i<products.length; i++) {
     var html = ` <div class="card">
     
     <img src=${products[i].productPicture} alt="Adidas UltraBoost" style="width:100%">
-    <h1>${products[i].productName}</h1>
+    <h1> ${products[i].productName}</h1>
     <h2>${products[i].productBrand}</h2>
     <p class="price">${products[i].productPrice}</p>
     <p>${products[i].productDescription}</p>
@@ -61,11 +61,11 @@ for (var i = 0; i<products.length; i++) {
               </div>
               <div>
 
-    <select name="Size">
+    <select name="Size" id="size-selection-${i}">
     ${sizeHtml}
     </select>
   </div>
-              <button class="add-cart-btn" data-id="${this.id}">Add to Cart</button>
+              <button class="add-cart-btn" onclick="updateCart(${i});" id="submit-${products[i].productId}">Add to Cart</button>
               </p>
             </div>
                 
@@ -74,31 +74,6 @@ for (var i = 0; i<products.length; i++) {
 var container = document.getElementById("productsContainer");
 container.insertAdjacentHTML('beforeend', html);
 }
-
-// ------- 3 -------
-// Create functionalities for our product class
-
-// Create a function to get the most recent list of products - enables us to load them by using "getProducts".
-function getProducts(){
-  return products
-;}
-
-// Load the products - hvorfor skal vi have denne? **!!**
-//loadProducts();
-
-
-// Create a function to find a product/item based on it's ID
-// The function should take both the array and ID as inputs
-const findProductsById = (productId) => {
-  // find method - callback method that 
-  const product = products.find((product)=> {
-          return product.id === productId
-  })
-  return product
-};
-
-
-
 
 
 /* ----------------Comments -----------------------
@@ -118,4 +93,3 @@ name="color-${i}" value="${products[i].productColor[u]}">
 // the labels "for" loop triggers the radio-buttons unique ID number to be checked. 
 
 ------------------------------------*/ 
-
