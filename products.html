@@ -18,7 +18,6 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
     <meta name="robots" content="noindex,follow" />
-
 </head>
 <div class="center2">
 
@@ -41,9 +40,24 @@
 
 <body>
 <h2> <b> Welcome to your Zuper ShoeStore! </b></h2>
-
-<div class="formDiv">
-    <input type="button" value="blue" id="filterBlue">
+<div id="sizefilter" >
+    <select id="sizeFilterSelect" onChange="filterBySize()">
+      <option value="" selected>Size</option>
+    </select>
+</div>
+<div id="colorfilter" >
+    <select id="colorFilterSelect" onChange="filterByColor()">
+      <option value="" selected>Color</option>
+    </select>
+</div>
+<div id="pricefilter" >
+    <label>Price from:</label>
+    <input type="number" id="priceFrom" min="0" max="1000" step="50" onchange="filterByFromPrice()">
+    <label>Price to:</label>
+    <input type="number" id="priceTo" min="0" max="1000" step="50">
+</div>
+<div>
+  <input type="button" value="Clear" onclick="clearFilters()">
 </div>
 
   <div id="productsContainer"> </div>
