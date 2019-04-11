@@ -16,7 +16,7 @@ var itemsInCart = [];
 window.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('itemToCart') === null) {
         itemsInCart = [];
-        console.log("Card is empty");
+        console.log("Your shoppingcart is empty");
   } 
   else {
     itemsInCart = JSON.parse(localStorage.getItem('itemToCart'));
@@ -25,9 +25,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // creating cartItem class:
 class CartItem {
-    constructor(cartItemName, cartItemDescription) {
+    constructor(cartItemName, cartItemDescription, cartSize, cartColor, cartPicture) {
         this.itemsInCart[0] = cartItemName;
         this.itemsInCart[1] = cartItemDescription;
+        this.itemsInCart[2] = cartSize;
+        this.itemsInCart[3] = cartColor;
+        this.itemsInCart[4] = cartPicture;
     }
 };
 
@@ -39,8 +42,8 @@ for (var i = 0; i<CartItem.length; i++) {
     
     cartHtml = ` <div class="card">
         
-        <img src=${CartItem[i].productPicture} alt="Adidas UltraBoost" style="width:100%">
-        <h1> ${cartItemName}</h1>
+        <img src=${CartItem.cartPicture} alt="Adidas UltraBoost" style="width:100%">
+        <h1> ${CartItem.cartItemName}</h1>
         <h2>${itemsInCart[i].productBrand}</h2>
         <p class="price">${itemsInCart[i].productPrice}</p>
         <p>${itemsInCart[i].productDescription}</p>
