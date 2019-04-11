@@ -29,4 +29,4 @@ console.log(itemToCart);
 localStorage.setItem('itemToCart', JSON.stringify(itemToCart));
 
 };
-
+// Load products based on stored pId.
