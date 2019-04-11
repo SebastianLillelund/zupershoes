@@ -1,4 +1,9 @@
-/*class lineItem {
+// vi skal lave et lineitem object der henter info fra size, color, pid ind i stedet for i en array.
+// Vi skal altså have en object-array med disse line-item arrays i + vores products array fra products.js.
+// Den skal så kigge efter ID og kigge efter products classen
+// Se Martins eksempel med Gin factory.
+
+class lineItem {
     constructor(itemName, itemDescription, itemPicture){
         for (var j = 0; j<products.length; j++) {
             this.products[j].productName = itemName;
@@ -6,7 +11,7 @@
             this.products[j].productPicture = itemPicture;
         };
     };
-}; */
+}; 
 
 // click on button
  const updateCart = (index) => {
