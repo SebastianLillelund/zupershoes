@@ -37,9 +37,22 @@ function getAllSizes() {
       allSizes.push(products[i].productSize[j])
     };
   }
-  var uniqueSizes = allSizes.filter((v, i , a) => a.indexOf(v) === i)
+  //var uniqueSizesA = allSizes.filter((v, i , a) => a.indexOf(v) === i)
+  var uniqueSizes = allSizes.filter(function(value, index , array) {
+    // uniqueSizesB = [36, 45, 47]
+    // allSizes = [36, 45, 47, 36]
+    // value = 36
+    // index = 3
+    // array = [36, 45, 47, 36]
+    // if(0 === 3) { }
+    if(array.indexOf(value) === index) {
+      return value
+    }
+  })
+ 
+
   var sortedUniqueSizes = uniqueSizes.sort()
-  var options = ""
+  // var options = ""
   var sizeSelectElement = document.getElementById("sizeFilterSelect");
   for (var i = 0; i<sortedUniqueSizes.length; i++) {
     // options += `<option value="${sortedUniqueSizes[i]}">${sortedUniqueSizes[i]}</option>`
@@ -48,7 +61,7 @@ function getAllSizes() {
     option.value = sortedUniqueSizes[i]
     sizeSelectElement.add(option)
   }
-  return options
+  //return options
 }
 
 getAllSizes()
@@ -62,6 +75,7 @@ function filterBySize() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
   var sizeValue = document.getElementById("sizeFilterSelect").value
+  // console.log(typeof sizeValue)
   if(!sizeValue) {
     productsFiltered = products
   } else { 
@@ -74,6 +88,7 @@ function filterBySize() {
   listProducts(productsFiltered)
   setMinAndMaxPrice()
 }
+
 //Colors
 function getAllColors() {
   var allColors = []
@@ -157,7 +172,7 @@ for (var i = 0; i<productsFilter.length; i++) {
   // looping through sizes
   var sizeHtml = "";
   for (var j = 0; j<productsFilter[i].productSize.length; j++) {
-  sizeHtml +=` 
+  sizeHtml +=`
   <option id="${j+1}" value="${productsFilter[i].productSize[j]}">  ${productsFilter[i].productSize[j]} </option>`;
 }
 
@@ -173,12 +188,12 @@ for (var i = 0; i<productsFilter.length; i++) {
   }
   var html = ` <div class="card">
   
-  <img src=${productsFilter[i].productPicture} alt="Adidas UltraBoost" style="width:100%">
-  <h1>${productsFilter[i].productName}</h1>
-  <h2>${productsFilter[i].productBrand}</h2>
-  <p class="price">${productsFilter[i].productPrice}</p>
-  <p>${productsFilter[i].productDescription}</p>
-  <p>${productsFilter[i].productGender}</p>
+  <img id="product-image-${i}" src=${productsFilter[i].productPicture} alt="${productsFilter[i].productName}" style="width:100%">
+  <h1 id="product-name-${i}">${productsFilter[i].productName}</h1>
+  <h2 id="product-brand-${i}">${productsFilter[i].productBrand}</h2>
+  <p id="product-price-${i}" class="price">${productsFilter[i].productPrice}</p>
+  <p id="product-description-${i}"> ${productsFilter[i].productDescription}</p>
+  <p id="product-gender-${i}">${productsFilter[i].productGender}</p>
 
   <div class="color-choose">
               ${colorHtml}
