@@ -191,7 +191,7 @@ for (var i = 0; i<productsFilter.length; i++) {
 
 </div>
 
-
+<br>
 <button class="add-cart-btn" onclick="updateCart(${i});" id="submit-${i}" value="${products[i].productId}"">Add to Cart</button>
 </p>
 </div>
