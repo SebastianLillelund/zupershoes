@@ -1,2 +1,2 @@
-var users = [new User()]
-var loggedInUserTest = new User ();
+var users = [new User("User1")]
+var loggedInUserTest = new User ("LoggedInUser1");

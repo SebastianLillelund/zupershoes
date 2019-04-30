@@ -13,8 +13,20 @@
 //     };
 // }; 
 
+/* 
+cartDb = [
+    [username, itemToCart],
+    [username2, itemToCart2],
+] 
+*/
+var cartDb = JSON.parse(localStorage.getItem('cart'));
+
+if (cartDb == null){
+    cartDb = [];
+}
+
 // click on button
-const updateCart = (index) => {
+function updateCart(index) {
     console.log("index: " + index)
 
    //           for (var j = 0; j<products.length; j++) {
@@ -52,5 +64,9 @@ const updateCart = (index) => {
    console.log(shoppincartId)
 
    localStorage.setItem(shoppincartId, JSON.stringify(itemToCart));
+
+   cartDb.push([loggedUser.userName, itemToCart, 'item-'+ Date.now()]);
+
+   localStorage.setItem('cart', JSON.stringify(cartDb));
 };
 // Load products based on stored pId.

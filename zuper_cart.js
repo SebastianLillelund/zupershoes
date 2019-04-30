@@ -1,51 +1,64 @@
-// Load user info
-var loggedUser;
-loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-console.log(loggedUser);
 
-document.addEventListener('DOMContentLoaded', function(){ 
-    document.getElementById("firstname-label").innerHTML = loggedUser.firstName;
-    document.getElementById("user-lastName-label").innerHTML = loggedUser.lastName;
-    document.getElementById("user-address-label").innerHTML = loggedUser.address;
-    document.getElementById("user-userName-label").innerHTML = loggedUser.userName;
-});
+var itemsDb = JSON.parse(localStorage.getItem('cart'));
+if (itemsDb == null) {
+    itemsDb = [];
+}
 
 // "sckey" er det samme index som anvendes i den anden del af koden (gør ikke noget her bare et navn) 
 // Denne function er lavet for at kunne fjerne i local storage (i carten), og derefter displaye de resterende 
-function removeFromCart(scKey) {
+/*function removeFromCart(scKey) {
     if(scKey) {
         localStorage.removeItem(scKey);
         document.getElementById("cartContainer").innerHTML = ""
         createCartItems()
     }
+}*/
+
+function removeFromCart(itemKey){
+    for ( let i = 0; i<itemsDb.length; i++){
+        if (itemsDb[i][2] == itemKey) {
+            itemsDb.splice(i, 1);
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(itemsDb));
+    var container = document.getElementById("cartContainer");
+    container.innerHTML = '';  
+    createCartItems();
 }
 var priceTotal = 0;
 
 function createCartItems() {
+
+    
     var itemsInCart = [];
     var cartHtml = ''
     var cartItemsHtml = '' 
-    if(localStorage.length === 0) {
+
+
+    if(itemsDb.length === 0) {
         console.log("Shopping cart empty")
     } else {
-        for (let index = 0; index < localStorage.length; index++) {
-            itemsInCart.push(JSON.parse(localStorage.getItem(localStorage.key(index))))
-        }
-        for (let index = 0; index < itemsInCart.length; index++) {
-            console.log(itemsInCart[index]);
-            console.log("price:" + itemsInCart[index].productPrice);
-            priceTotal += itemsInCart[index].productPrice*1;
-            cartItemsHtml += `<table id="myTable">
+        for (let index = 0; index < itemsDb.length; index++) {
+            if (itemsDb[index][0] == loggedUser.userName){
+                var currentItem = itemsDb[index][1];
+                var dbKey = itemsDb[index][2];
+                priceTotal += currentItem.productPrice*1;
+                cartItemsHtml += `<table id="myTable">
             <tr>
-                <td><img src="${itemsInCart[index].productimage}" style="width:75px" /></td>
-                <td><strong>${itemsInCart[index].productBrand}</strong><td>
-                <td>${itemsInCart[index].productName}<td>
-                <td>${itemsInCart[index].productPrice}<td>
-                <td><button onClick="removeFromCart(localStorage.key(${index}))">Remove from cart</button><td>
+                <td><img src="${currentItem.productimage}" style="width:75px" /></td>
+                <td><strong>${currentItem.productBrand}</strong><td>
+                <td>${currentItem.productName}<td>
+                <td>${currentItem.productPrice}<td>
+                <td><button onClick="removeFromCart('${dbKey}')">Remove from cart</button><td>
             </tr>
             </table>`
-            
-        } 
+            }
+
+            else {
+                console.log('User not matched');
+            }
+        }
+
         document.getElementById("priceTotal").innerHTML = priceTotal; 
     
     }
