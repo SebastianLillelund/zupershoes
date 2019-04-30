@@ -1,7 +1,9 @@
 // Load user info
 var loggedUser;
+loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+console.log(loggedUser);
+
 document.addEventListener('DOMContentLoaded', function(){ 
-    loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     document.getElementById("firstname-label").innerHTML = loggedUser.firstName;
     document.getElementById("user-lastName-label").innerHTML = loggedUser.lastName;
     document.getElementById("user-address-label").innerHTML = loggedUser.address;
@@ -12,11 +14,12 @@ document.addEventListener('DOMContentLoaded', function(){
 // Denne function er lavet for at kunne fjerne i local storage (i carten), og derefter displaye de resterende 
 function removeFromCart(scKey) {
     if(scKey) {
-        localStorage.removeItem(scKey)
+        localStorage.removeItem(scKey);
         document.getElementById("cartContainer").innerHTML = ""
         createCartItems()
     }
 }
+var priceTotal = 0;
 
 function createCartItems() {
     var itemsInCart = [];
@@ -29,20 +32,32 @@ function createCartItems() {
             itemsInCart.push(JSON.parse(localStorage.getItem(localStorage.key(index))))
         }
         for (let index = 0; index < itemsInCart.length; index++) {
-            cartItemsHtml += `<tr>
+            console.log(itemsInCart[index]);
+            console.log("price:" + itemsInCart[index].productPrice);
+            priceTotal += itemsInCart[index].productPrice*1;
+            cartItemsHtml += `<table id="myTable">
+            <tr>
                 <td><img src="${itemsInCart[index].productimage}" style="width:75px" /></td>
                 <td><strong>${itemsInCart[index].productBrand}</strong><td>
                 <td>${itemsInCart[index].productName}<td>
+                <td>${itemsInCart[index].productPrice}<td>
                 <td><button onClick="removeFromCart(localStorage.key(${index}))">Remove from cart</button><td>
-            </tr>`
+            </tr>
+            </table>`
             
-        }
+        } 
+        document.getElementById("priceTotal").innerHTML = priceTotal; 
+    
     }
+    
     cartHtml = `<table>${cartItemsHtml}</table>`
     // Creating a container and appending the html var. above into the products.html after beginning.
     var container = document.getElementById("cartContainer");
     container.insertAdjacentHTML('beforeend', cartHtml);  
-}
+
+};
+
+
 
 // https://stackoverflow.com/questions/19902670/append-objects-in-local-storage/19902764
 // Load itemsInCart
