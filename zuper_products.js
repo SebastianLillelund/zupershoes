@@ -39,12 +39,6 @@ function getAllSizes() {
   }
   //var uniqueSizesA = allSizes.filter((v, i , a) => a.indexOf(v) === i)
   var uniqueSizes = allSizes.filter(function(value, index , array) {
-    // uniqueSizesB = [36, 45, 47]
-    // allSizes = [36, 45, 47, 36]
-    // value = 36
-    // index = 3
-    // array = [36, 45, 47, 36]
-    // if(0 === 3) { }
     if(array.indexOf(value) === index) {
       return value
     }
@@ -55,7 +49,7 @@ function getAllSizes() {
   // var options = ""
   var sizeSelectElement = document.getElementById("sizeFilterSelect");
   for (var i = 0; i<sortedUniqueSizes.length; i++) {
-    // options += `<option value="${sortedUniqueSizes[i]}">${sortedUniqueSizes[i]}</option>`
+// 
     var option = document.createElement("option")
     option.text = sortedUniqueSizes[i]
     option.value = sortedUniqueSizes[i]
@@ -102,7 +96,7 @@ function getAllColors() {
   var options = ""
   var colorSelectElement = document.getElementById("colorFilterSelect");
   for (var i = 0; i<sortedUniqueColors.length; i++) {
-    // options += `<option value="${sortedUniqueSizes[i]}">${sortedUniqueSizes[i]}</option>`
+    // 
     var option = document.createElement("option")
     option.text = sortedUniqueColors[i]
     option.value = sortedUniqueColors[i]

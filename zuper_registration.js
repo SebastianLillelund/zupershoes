@@ -13,6 +13,9 @@ const submitBtnUI = document.getElementById('submit-btn');
 // To respond to clicks = we make use of the onclick property triggering a function.
 submitBtnUI.onclick = function () {
 
+// we create a function to test for correctly input e-mails.
+
+
     // We validate input information as non-empty values. Returning alerts if the user missed an input field // if the password is less than 8 characters.
 if (firstNameUI.value.length == 0) {
     alert ("hmmn, something went wrong. Please fill out your first name")
@@ -40,20 +43,8 @@ if (firstNameUI.value.length == 0) {
     return false;
 } 
     // If checked (agreed to the terms and conditions) = create a new user object with the input information.
-    if(checkboxUI.checked == true) {
-        // var firstName = firstNameUI.value
-        // var lastName = lastNameUI.value
-        // var address = addressUI.value
-        // var email = emailUI.value
-        // var username = usernameUI.value
-        // var password = passwordUI.value
-        
-        console.log(firstNameUI.value,
-                    lastNameUI.value,
-                    addressUI.value,
-                    emailUI.value,
-                    usernameUI.value,
-                    passwordUI.value)
+    if(checkboxUI.checked == true) {        
+
         // To store the user we add him to the array of users
         users.push(new User(firstNameUI.value,
             lastNameUI.value,
@@ -65,12 +56,6 @@ if (firstNameUI.value.length == 0) {
             localStorage.setItem('users', JSON.stringify(users));
             //redirect user to login page
             window.location.assign('./zuper_login.html')
-            // console.log(firstNameUI.value,
-            //             lastNameUI.value,
-            //             addressUI.value,
-            //             emailUI.value,
-            //             usernameUI.value,
-            //             passwordUI.value)
     }    
         
 }

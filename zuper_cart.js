@@ -31,13 +31,14 @@ var priceTotal = 0;
 function createCartItems() {
 
     
-    var itemsInCart = [];
+    // var itemsInCart = [];
     var cartHtml = ''
     var cartItemsHtml = '' 
 
 
     if(itemsDb.length === 0) {
-         alert("please login")
+        // items cannot be stored in the database if user is not logged in - thus:
+         alert("Please login")
     } else {
         for (let index = 0; index < itemsDb.length; index++) {
             if (itemsDb[index][0] == loggedUser.userName){
@@ -55,10 +56,6 @@ function createCartItems() {
             </tr>
             </table>`
             }
-
-            // else {
-            //     alert('User not matched');
-            // }
         }
 
         document.getElementById("priceTotal").innerHTML = priceTotal; 
@@ -71,8 +68,6 @@ function createCartItems() {
     container.insertAdjacentHTML('beforeend', cartHtml);  
 
 };
-
-
 
 // https://stackoverflow.com/questions/19902670/append-objects-in-local-storage/19902764
 // Load itemsInCart
