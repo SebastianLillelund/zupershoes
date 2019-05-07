@@ -1,10 +1,6 @@
 const loginBtnInput = document.getElementById('login-btn');
 
 
-// To respond to the users click, I make use of the onclick property
-// of the submit button and attach a function to it
-var users = [];
-
 window.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('users') === null) {
   } else {
@@ -15,7 +11,8 @@ window.addEventListener('DOMContentLoaded', function() {
   };
 });
 
-
+// To respond to the users click, we make use of the onclick property
+// of the login button and attach a function to it
 loginBtnInput.onclick = function () {
     var usernameInput=document.getElementById('userName');
     var passwordInput = document.getElementById('userPassword');
