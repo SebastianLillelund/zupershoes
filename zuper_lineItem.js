@@ -1,43 +1,17 @@
-// vi skal lave et lineitem object der henter info fra size, color, pid ind i stedet for i en array.
-// Vi skal altså have en object-array med disse line-item arrays i + vores products array fra products.js.
-// Den skal så kigge efter ID og kigge efter products classen
-// Se Martins eksempel med Gin factory.
-
-// class lineItem {
-//     constructor(itemName, itemDescription, itemPicture){
-//         for (var j = 0; j<products.length; j++) {
-//             this.products[j].productName = itemName;
-//             this.products[j].productDescription = itemDescription;
-//             this.products[j].productPicture = itemPicture;
-//         };
-//     };
-// }; 
-
-/* 
-cartDb = [
-    [username, itemToCart],
-    [username2, itemToCart2],
-] 
-*/
+// we create a cartDatabase variable and loads in items stored in 'cart'.
+// we parse to turn the localstorage string into a javascript object.
 var cartDb = JSON.parse(localStorage.getItem('cart'));
 
+// cartDb will either hold items as an array, or be empty in which case it is = null --> null = nothing / empty.
+// We can only use push to store something in an array, therefore we set cartDb to be an empty ARRAY if null.
 if (cartDb == null){
     cartDb = [];
 }
 
 // click on button
 function updateCart(index) {
-    console.log("index: " + index)
-
-   //           for (var j = 0; j<products.length; j++) {
-   //             // lineItem.itemName = products[j].productName
-   //             // lineItem.itemDescription = products[j].productDescription
-   //             // lineItem.itemPicture = products[j].productPicture
-   //             };
-
+    // We now assign the element-values to varibales 
    var size = document.getElementById(`size-selection-${index}`).value;
-   //querySelector is a method to get an html element. Since we're using query's we're not limited to retrieving ID's.
-   // På nedenstående linje får vi en "fejl" da der aktivt skal vælges en farve, der er altså ikke valgt en by default, hvilket ikke kan ses på de hvide :)
    var color = document.querySelector(`input[name='color-${index}']:checked`).value;
    var pId = document.getElementById(`submit-${index}`).value;
    var productName = document.getElementById(`product-name-${index}`).innerHTML;
@@ -46,8 +20,7 @@ function updateCart(index) {
    var productPrice = document.getElementById(`product-price-${index}`).innerHTML;
    var productBrand = document.getElementById(`product-brand-${index}`).innerHTML;
    var productimage = document.getElementById(`product-image-${index}`).src;
-   console.log(productimage)
-
+// we save in an array 
    var itemToCart = {
        size: size,
        color: color,
@@ -59,14 +32,12 @@ function updateCart(index) {
        productPrice: productPrice,
        productBrand: productBrand,
    }
-   // date.now giver et unikt tidsstempel "id."" denne bruger vi her som løsning for at kunne tilføje flere ens produkter til carten  
-   var shoppincartId = 'sc-' + Date.now()
-   console.log(shoppincartId)
 
-   localStorage.setItem(shoppincartId, JSON.stringify(itemToCart));
-
+// date.now creates a unique "id". We create id's in this way so the user can add e.g. 2x same product.
    cartDb.push([loggedUser.userName, itemToCart, 'item-'+ Date.now()]);
-
+// We transfer the array to localstorage as with the key 'cart'
    localStorage.setItem('cart', JSON.stringify(cartDb));
+
+// we alert an 'Item added' message to the user, to make it known that the item was succesfully stored.
+alert('Item added to shoppingcart');
 };
-// Load products based on stored pId.
