@@ -3,17 +3,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.center {
-    text-align: center;
-    border: 3px solid rgb(0, 0, 0);
-  }
-
-.innerDiv {
-    text-align: center;
-    border: 3px solid rgb(0, 0, 0);
-}
-
-
 .headerText {
     font-size: 600%
 }
@@ -23,8 +12,7 @@
     text-align: center
     
 }
-
-
+/* Below css formats the menu on all sites */
 ul {
     list-style-type: none;
     margin: 0;

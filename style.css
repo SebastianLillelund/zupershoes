@@ -1,4 +1,6 @@
 /* # triggers ID's // . triggers classes */
+
+/* This css file creates the ccs formatting for the products to be displayed on the homepage/shopping page */
 #productsContainer {
   margin: 0 auto;
   width: 80%;
@@ -79,10 +81,3 @@
   background-repeat: no-repeat;
   background-position: center;
 } 
-/*
-.shoeColor.checked {
-  background-image: url(./pics/check-icn.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-*/
