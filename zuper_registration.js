@@ -3,6 +3,7 @@
 const firstNameUI = document.getElementById('firstName');
 const lastNameUI = document.getElementById('lastName');
 const addressUI = document.getElementById('address');
+const emailUI = document.getElementById('email');
 const usernameUI = document.getElementById('userName'); 
 const passwordUI = document.getElementById('userPassword');
 const checkboxUI = document.getElementById('terms');
@@ -25,6 +26,9 @@ if (firstNameUI.value.length == 0) {
 } else if (usernameUI.value.length == 0) {
     alert ("hmmn, something went wrong. Please create a username for your profile")
     return false;
+} else if (emailUI.value.length == 0) {
+    alert ("hmmn, something went wrong. Please create an email for your profile")
+    return false;
 } else if (passwordUI.value.length == 0) {
     alert ("hmmn, something went wrong. Your profile needs a password")
     return false;
@@ -35,28 +39,38 @@ if (firstNameUI.value.length == 0) {
     alert ("hmmn, something went wrong. Please read and agree to our terms")
     return false;
 } 
-
     // If checked (agreed to the terms and conditions) = create a new user object with the input information.
     if(checkboxUI.checked == true) {
-        var firstName = firstNameUI.value
-        var lastName = lastNameUI.value
-        var address = addressUI.value
-        var username = usernameUI.value
-        var password = passwordUI.value
-      
-        /* Not letting the same username be used twice (unique users)
-       for (let i=0; i< username.length; i++) {
-            if usernameUI.value === username[i].username) {
-                //update the span to let the user know that he has to choose a differnt username
-            } return false
-        }
-        */
+        // var firstName = firstNameUI.value
+        // var lastName = lastNameUI.value
+        // var address = addressUI.value
+        // var email = emailUI.value
+        // var username = usernameUI.value
+        // var password = passwordUI.value
+        
+        console.log(firstNameUI.value,
+                    lastNameUI.value,
+                    addressUI.value,
+                    emailUI.value,
+                    usernameUI.value,
+                    passwordUI.value)
         // To store the user we add him to the array of users
-        users.push(new User(firstName, lastName, address, username, password)) ;
-    
-	    localStorage.setItem('users', JSON.stringify(users));
-        //redirect user to login page
-     window.location.assign('./zuper_login.html')
+        users.push(new User(firstNameUI.value,
+            lastNameUI.value,
+            addressUI.value,
+            emailUI.value,
+            usernameUI.value,
+            passwordUI.value)) ;
+            
+            localStorage.setItem('users', JSON.stringify(users));
+            //redirect user to login page
+            window.location.assign('./zuper_login.html')
+            // console.log(firstNameUI.value,
+            //             lastNameUI.value,
+            //             addressUI.value,
+            //             emailUI.value,
+            //             usernameUI.value,
+            //             passwordUI.value)
     }    
         
 }

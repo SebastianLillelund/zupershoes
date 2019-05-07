@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function() {
   } else {
     users = JSON.parse(localStorage.getItem('users'));
     for (let i = 0; i < users.length; i++) {
-    users[i] = new User(users[i].firstName, users[i].lastName, users[i].address, users[i].userName, users[i].userPassword);
+    users[i] = new User(users[i].firstName, users[i].lastName, users[i].address, users[i].email, users[i].userName, users[i].userPassword);
     }
   };
 });

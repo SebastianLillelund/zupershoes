@@ -24,6 +24,7 @@ function removeFromCart(itemKey){
     var container = document.getElementById("cartContainer");
     container.innerHTML = '';  
     createCartItems();
+    window.location.reload();
 }
 var priceTotal = 0;
 
@@ -36,7 +37,7 @@ function createCartItems() {
 
 
     if(itemsDb.length === 0) {
-        console.log("Shopping cart empty")
+         alert("please login")
     } else {
         for (let index = 0; index < itemsDb.length; index++) {
             if (itemsDb[index][0] == loggedUser.userName){
@@ -48,15 +49,16 @@ function createCartItems() {
                 <td><img src="${currentItem.productimage}" style="width:75px" /></td>
                 <td><strong>${currentItem.productBrand}</strong><td>
                 <td>${currentItem.productName}<td>
-                <td>${currentItem.productPrice}<td>
+                <td>DKK: ${currentItem.productPrice}<td>
+                <td>Size: ${currentItem.size}<td>
                 <td><button onClick="removeFromCart('${dbKey}')">Remove from cart</button><td>
             </tr>
             </table>`
             }
 
-            else {
-                console.log('User not matched');
-            }
+            // else {
+            //     alert('User not matched');
+            // }
         }
 
         document.getElementById("priceTotal").innerHTML = priceTotal; 
