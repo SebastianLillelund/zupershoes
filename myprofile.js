@@ -14,6 +14,6 @@ document.getElementById("user-userName-label").innerHTML = loggedUser.userName;
 const logoutUserBtn = document.getElementById('logout-btn');
 // function that fires "localStrage.clear()" when btn is clicked (onclick).
 logoutUserBtn.onclick = () => {
-    localStorage.clear();
+    localStorage.removeItem('loggedUser');
     window.location.reload();
 };
