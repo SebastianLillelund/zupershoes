@@ -1,10 +1,13 @@
 // Assign the html btn to variable.
 const loginBtnInput = document.getElementById('login-btn');
 
-// on page load: If users are empty, load in the user from localStorage to users array.
+// on page load:  
 window.addEventListener('DOMContentLoaded', function () {
+    // If users are empty = do nothing,
     if (localStorage.getItem('users') === null) {
-    } else {
+    }
+    // else = load in the user from localStorage to users array.
+    else {
         users = JSON.parse(localStorage.getItem('users'));
         for (let i = 0; i < users.length; i++) {
             users[i] = new User(users[i].firstName, users[i].lastName, users[i].address, users[i].email, users[i].userName, users[i].userPassword);
