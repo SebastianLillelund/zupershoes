@@ -1,6 +1,5 @@
 // we create a class called User to be filled with the users information. The user class is constructed as an object. 
 var users = []
-// var loggedInUserTest = new User ("LoggedInUser1");
 
 
 class User {

@@ -53,31 +53,17 @@
 
     </body>
 
-    <form class="payment-form" method="POST" action="https://merchant.com/successUrl">
-      <script>
-        window.CKOConfig = {
-          publicKey: 'pk_test_58e17720-8ea5-4cae-8e9e-e7b2e1d927ab',
-          value: priceTotal,
-          currency: 'DKK',
-          paymentMode: 'cards',
-          cardFormMode: 'cardTokenisation',
-          cardTokenised: function (event) {
-            console.log(event.data.cardToken);
-          }
-        };
-      </script>
-      <script async src="https://cdn.checkout.com/sandbox/js/checkout.js"></script>
-    </form>
-    <!-- We stop here, as we cannot set up a channel correctly to our merchant account at checkout.com 
-    without having a live site with SSL protection.
-    -->
 
+
+    <div class="formDiv">
+      <input type="button" value="Order" id="order-btn">
+  </div>
 
 
 
 
     <script src="./zuper_users.js"></script>
-    <script src="./zuper_database.js"></script>
+    <script src="./order.js"></script>
     <script src="./zuper_cart.js"></script>
     <script src="./zuper_lineItem.js"></script>
     <script src="./myprofile.js"></script>

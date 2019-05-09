@@ -3,8 +3,9 @@ const loginBtnInput = document.getElementById('login-btn');
 
 // on page load:  
 window.addEventListener('DOMContentLoaded', function () {
-    // If users are empty = do nothing,
+    // If users are empty = alert,
     if (localStorage.getItem('users') === null) {
+        alert('Please register before logging in')
     }
     // else = load in the user from localStorage to users array.
     else {
