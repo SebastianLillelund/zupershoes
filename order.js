@@ -23,20 +23,24 @@ orderBtn.onclick = function () {
     // binding only stored product info 
     for (let i = 0; i < itemsDb.length; i++) {
         // linking itemsDb to the users unique array of items + display array of items
-            var itemToOrder = itemsDb[i][1];
+            var itemToOrder = itemsDb;
     };
 
+    // creating a timestamp. 
+    // The Date() method creates a Date object set to the users current date and time.
+    var time = Date();
+     
     // Pushing values to Order class
     orders.push(new Order(
-        5,
+        Math.floor(Math.random() * 10000000),
         itemToOrder,
         priceTotal,
         loggedUser,
-        'date',
+        time,
         true));
-
-    console.log(orders);
-
+    // Store order in locaslStorage under the key name "order".
     localStorage.setItem('order', JSON.stringify(orders));
+
+
 };
 

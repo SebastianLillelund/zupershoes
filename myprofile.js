@@ -19,3 +19,9 @@ logoutUserBtn.onclick = () => {
     localStorage.removeItem('loggedUser');
     window.location.reload();
 };
+
+const historyBtn = document.getElementById('history-btn');
+// function that fires "go to order.html when btn is clicked (onclick).
+historyBtn.onclick = () => {
+    window.location.assign('./order.html')
+};
