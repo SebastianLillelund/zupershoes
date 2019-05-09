@@ -1,3 +1,4 @@
+// This document handles orders. All orders are saved here to be displayed historically.
 var orders = [];
 var orderHtml = '';
 
