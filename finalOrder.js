@@ -33,33 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <p id="userOrder-${i}">Billing: ${orders[i]["userOrder"]["firstName"]} ${orders[i]["userOrder"]["lastName"]} </p>
     <p id="userOrder-${i}">${orders[i]["userOrder"]["address"]}</p>
 
-    </div>
-   `
-
+    </div>`
     }
     // Creating a container and appending the html var. above into the products.html after beginning.
     var orderContainer = document.getElementById("orderContainer");
     orderContainer.insertAdjacentHTML('beforeend', orderHtml);
 
 });
-
-        // // we loop through items that have been stored by user in itemsDb
-        // for (let index = 0; index < itemsDb.length; index++) {
-        //     // linking itemsDb to the users unique array of items + display array of items
-        //     if (itemsDb[index][0] == loggedUser.userName) {
-        //         var currentItem = itemsDb[index][1];
-        //         var dbKey = itemsDb[index][2];
-        //         // adds each currentItem to the priceTotal variable.
-        //         priceTotal += currentItem.productPrice * 1;
-        //         cartItemsHtml += `<table id="myTable">
-        //     <tr>
-        //         <td><img src="${currentItem.productimage}" style="width:75px" /></td>
-        //         <td><strong>${currentItem.productBrand}</strong><td>
-        //         <td>${currentItem.productName}<td>
-        //         <td>DKK: ${currentItem.productPrice}<td>
-        //         <td>Size: ${currentItem.size}<td>
-        //         <td><button onClick="removeFromCart('${dbKey}')">Remove from cart</button><td>
-        //     </tr>
-        //     </table>`
-        //     }
-        // }

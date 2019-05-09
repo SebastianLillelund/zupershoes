@@ -73,6 +73,7 @@ function createCartItems() {
     var container = document.getElementById("cartContainer");
     container.insertAdjacentHTML('beforeend', cartHtml);
 
+    
 };
 
 
