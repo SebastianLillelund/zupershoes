@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="zuper_registration.css" rel="stylesheet" type="text/css"/>
-    <title>Shoppingcart | Zuper-shoes.com</title>
- 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-        <!-- CSS -->
-        <link href="style.css" rel="stylesheet">
-        <meta name="robots" content="noindex,follow" />
-    
+  <link href="zuper_registration.css" rel="stylesheet" type="text/css" />
+  <title>Shoppingcart | Zuper-shoes.com</title>
 
-<div class="center2">
-        <header>
-            <h1 class="headerText"> Zuper Shoes </h1>
-            
-            <h2> <i> Because your feet are worth it! </i> </h2>
-            
-        <header>
-            
-                <body>               
-                        <ul>
-                        <li><a href="./products.html">Home</a></li>
-                        <li><a href="./zuper_registration.html">Sign up</a></li>
-                        <li><a href="./zuper_login.html">Login</a></li>
-                        <li><a href="./myprofile.html">My profile</a></li>
-                        <li><a href="./cart.html">View Shoppingcart</a></li>
-                        <li><a href="./zuper_contact.html">Contact</a></li>
-                        </ul>               
-                        </body>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <!-- CSS -->
+  <link href="style.css" rel="stylesheet">
+  <meta name="robots" content="noindex,follow" />
+
+
+  <div class="center2">
+    <header>
+      <h1 class="headerText"> Zuper Shoes </h1>
+
+      <h2> <i> Because your feet are worth it! </i> </h2>
+
+      <header>
+
+<body>
+  <ul>
+    <li><a href="./products.html">Home</a></li>
+    <li><a href="./zuper_registration.html">Sign up</a></li>
+    <li><a href="./zuper_login.html">Login</a></li>
+    <li><a href="./myprofile.html">My profile</a></li>
+    <li><a href="./cart.html">View Shoppingcart</a></li>
+    <li><a href="./zuper_contact.html">Contact</a></li>
+  </ul>
+</body>
 
 
 <body>
 
-<div>
+  <div>
 
     <body>
-        <h2> <b> Welcome to your Zuper Shoppingcart! </b></h2>
-                
-        <div id="cartContainer"> </div>
+      <h2> <b> Welcome to your Zuper Shoppingcart! </b></h2>
+
+      <div id="cartContainer"> </div>
     </body>
 
     <body>
-        <h3> Total: <div id="priceTotal"> </div>
+      <h3> Total: <div id="priceTotal"> </div>
         DKK</h3>
 
 
     </body>
 
     <form class="payment-form" method="POST" action="https://merchant.com/successUrl">
-        <script>
-          window.CKOConfig = {
-            publicKey: 'pk_test_58e17720-8ea5-4cae-8e9e-e7b2e1d927ab',
-            value: priceTotal,
-            currency: 'DKK',
-            paymentMode: 'cards',
-            cardFormMode: 'cardTokenisation',
-            cardTokenised: function(event) {
-              console.log(event.data.cardToken);
-            }
-          };
-        </script>
-        <script async src="https://cdn.checkout.com/sandbox/js/checkout.js"></script>
-      </form>
+      <script>
+        window.CKOConfig = {
+          publicKey: 'pk_test_58e17720-8ea5-4cae-8e9e-e7b2e1d927ab',
+          value: priceTotal,
+          currency: 'DKK',
+          paymentMode: 'cards',
+          cardFormMode: 'cardTokenisation',
+          cardTokenised: function (event) {
+            console.log(event.data.cardToken);
+          }
+        };
+      </script>
+      <script async src="https://cdn.checkout.com/sandbox/js/checkout.js"></script>
+    </form>
     <!-- We stop here, as we cannot set up a channel correctly to our merchant account at checkout.com 
     without having a live site with SSL protection.
     -->
@@ -75,12 +76,13 @@
 
 
 
-<script src="./zuper_users.js"></script>
-<script src="./zuper_database.js"></script>
-<script src="./zuper_cart.js"></script>
-<script src="./zuper_lineItem.js"></script>
-<script src="./myprofile.js"></script>
+    <script src="./zuper_users.js"></script>
+    <script src="./zuper_database.js"></script>
+    <script src="./zuper_cart.js"></script>
+    <script src="./zuper_lineItem.js"></script>
+    <script src="./myprofile.js"></script>
 
 
 </body>
+
 </html>
