@@ -1,4 +1,4 @@
-// creating product class:
+// creating product class, constructed as an object:
 class Product {
   constructor(productName, productDescription, productColor, productPrice, productQuantity, productGender, productBrand, productPicture, productSize, productId) {
     this.productName = productName;
@@ -13,7 +13,7 @@ class Product {
     this.productId = productId;
   }
 };
-
+// We create array containing the products
 var products = []
 var productsFiltered = []
 function generateProducts() {
@@ -29,7 +29,8 @@ function generateProducts() {
   ];
   productsFiltered = products
 }
-//Size
+// Section related to filtering by size:
+// we loop through each product in the array and loop through all sizes (looping in the size array of the array)
 function getAllSizes() {
   generateProducts()
   var allSizes = []
@@ -38,34 +39,40 @@ function getAllSizes() {
       allSizes.push(products[i].productSize[j])
     };
   }
+  // We create "unique" sizes (an array containing one of each available sizes)   
   //var uniqueSizesA = allSizes.filter((v, i , a) => a.indexOf(v) === i)
   var uniqueSizes = allSizes.filter(function (value, index, array) {
-    if (array.indexOf(value) === index) {
+    // Example note of how this works: 
+    // allSizes = [36, 45, 47, 36, 47]
+    // value = 36
+    // index = 3
+    // array = [36, 45, 47]
+    // if(0 === 3) { }
+    if (array.indexOf(value)  === index) {
       return value
     }
   })
 
-
+// We sort the sizes from low to high and create an option to select size in html 
   var sortedUniqueSizes = uniqueSizes.sort()
   // var options = ""
   var sizeSelectElement = document.getElementById("sizeFilterSelect");
   for (var i = 0; i < sortedUniqueSizes.length; i++) {
-    // 
-    var option = document.createElement("option")
-    option.text = sortedUniqueSizes[i]
-    option.value = sortedUniqueSizes[i]
-    sizeSelectElement.add(option)
+    // <select><option value="36">36</option></select>
+    /* <option></option> */ var option = document.createElement("option")
+    /* <option>36</option> */ option.text = sortedUniqueSizes[i]
+    /* <option value="36">36</option> */ option.value = sortedUniqueSizes[i]
+    /* <select><option value="36">36</option></select> */ sizeSelectElement.add(option)
   }
-  //return options
 }
-
+// We create a clearfilters/reset function 
 getAllSizes()
 function clearFilters() {
   generateProducts()
   document.getElementById("productsContainer").innerHTML = ""
   listProducts(products)
 }
-
+// The actual filtering function
 function filterBySize() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
@@ -84,7 +91,7 @@ function filterBySize() {
   setMinAndMaxPrice()
 }
 
-//Colors
+// Section related to filtering by color:
 function getAllColors() {
   var allColors = []
   for (var i = 0; i < products.length; i++) {
@@ -92,6 +99,7 @@ function getAllColors() {
       allColors.push(products[i].productColor[j])
     };
   }
+  // We create "unique" sizes (an array containing one of each available color) 
   var uniqueColors = allColors.filter((v, i, a) => a.indexOf(v) === i)
   var sortedUniqueColors = uniqueColors.sort()
   var options = ""
@@ -107,7 +115,7 @@ function getAllColors() {
 }
 
 getAllColors()
-
+// The actual filtering function
 function filterByColor() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
@@ -127,7 +135,9 @@ function filterByColor() {
   console.log(selectedFilters)
 }
 
-// price
+// Section related to filtering by price:
+
+// The actual filtering function 
 function filterByFromPrice() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
@@ -168,11 +178,13 @@ function listProducts(productsFilter) {
     var sizeHtml = "";
     for (var j = 0; j < productsFilter[i].productSize.length; j++) {
       sizeHtml += `
-  <option id="${j + 1}" value="${productsFilter[i].productSize[j]}">  ${productsFilter[i].productSize[j]} </option>`;
+        <option id="${j + 1}" value="${productsFilter[i].productSize[j]}">  
+          ${productsFilter[i].productSize[j]} 
+        </option>`;
     }
 
 
-    // looping through the color-array within the array. Inception! <3
+    // looping through the color-array within the array. inception
     var colorHtml = "";
     for (var u = 0; u < productsFilter[i].productColor.length; u++) {
       colorHtml += ` <div>
@@ -209,6 +221,7 @@ function listProducts(productsFilter) {
   }
 }
 listProducts(products)
+
 /* ----------------Comments -----------------------
 //  <input data-image="${products[i].productColor[u]}" class="${products[i].productColor[u]}" type="radio" id="${products[i].productColor[u]}-${i}"
 name="color-${i}" value="${products[i].productColor[u]}">
