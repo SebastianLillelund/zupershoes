@@ -23,6 +23,7 @@ function updateCart(index) {
     var itemToCart = {
         size: size,
         color: color,
+
         productimage: productimage,
         productName: productName,
         productDescription: productDescription,
@@ -31,8 +32,9 @@ function updateCart(index) {
         productBrand: productBrand,
     }
 
-    // pushing the users information and item selected (itemToCart). - we create a user and product relation.
-    cartDb.push([loggedUser.userName, itemToCart]);
+     // pushing the users information and item selected (itemToCart). - we create a user and product relation.
+     // the item- + date.new() is used to add a unique ID. We use this to create a working "remove item from cart" function.
+    cartDb.push([loggedUser.userName, itemToCart, 'item-' + Date.now()]);
     // We transfer the array to localstorage as with the key 'cart'
     localStorage.setItem('cart', JSON.stringify(cartDb));
 

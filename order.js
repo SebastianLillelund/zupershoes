@@ -1,9 +1,9 @@
 
 var currentOrder = [];
 var orders = JSON.parse(localStorage.getItem('order'));
-    if (orders === null) {
-        orders =[]
-    };
+if (orders === null) {
+    orders = []
+};
 
 var itemToOrder = []
 
@@ -28,13 +28,13 @@ orderBtn.onclick = function () {
     // binding only stored product info 
     for (let i = 0; i < itemsDb.length; i++) {
         // linking itemsDb to the users unique array of items + display array of items
-            var itemToOrder = itemsDb;
-        };
+        var itemToOrder = itemsDb;
+    };
 
     // creating a timestamp. 
     // The Date() method creates a Date object set to the users current date and time.
     var time = Date();
-     
+
     // Pushing values to Order class
     orders.push(new Order(
         Math.floor(Math.random() * 10000000),
@@ -54,10 +54,13 @@ orderBtn.onclick = function () {
         loggedUser,
         time,
         true);
-// Store order in locaslStorage under the key name "order".
-localStorage.setItem('currentOrder', JSON.stringify(currentOrder));
+    // Store order in locaslStorage under the key name "order".
+    localStorage.setItem('currentOrder', JSON.stringify(currentOrder));
 
-// When the user presses order we assume payment and redirect to order site:
-window.location.assign('./currentOrder.html')
+    // When the user presses order we assume payment and redirect to order site:
+    window.location.assign('./currentOrder.html')
 
+    // remove items stored in 'cart' in localStorage to clear the cart upon ordering.
+    localStorage.removeItem('cart');
 };
+
