@@ -91,7 +91,7 @@ function filterBySize() {
     })
   }
   listProducts(productsFiltered)
-  setMinAndMaxPrice()
+
 }
 
 // Section related to filtering by color:
@@ -136,7 +136,7 @@ function filterByColor() {
     })
   }
   listProducts(productsFiltered)
-  setMinAndMaxPrice()
+ 
   console.log(selectedFilters)
 }
 
@@ -176,7 +176,7 @@ function filterByToPrice() {
     productsFiltered = products
   } else {
     productsFiltered = productsFiltered.filter((product) => {
-      if (product.productPrice >= Number(priceTo)) {
+      if (product.productPrice <= Number(priceTo)) {
         return product
       }
     })
@@ -184,20 +184,6 @@ function filterByToPrice() {
   listProducts(productsFiltered)
 }
 
-
-function setMinAndMaxPrice() {
-  var allPrices = []
-  for (var i = 0; i < productsFiltered.length; i++) {
-    allPrices.push(productsFiltered[i].productPrice)
-  }
-  var allPricesSorted = allPrices.sort()
-  var startPrice = allPricesSorted[0] || 0
-  var endPrice = allPricesSorted.reverse()[0] || 1000
-  document.getElementById("priceFrom").value = startPrice
-  document.getElementById("priceTo").value = endPrice
-}
-
-setMinAndMaxPrice()
 
 function listProducts(productsFilter) {
   // ----html ----- 

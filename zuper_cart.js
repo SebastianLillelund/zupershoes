@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function () {
         // if login is registered --> we load cart items through our function.
     } else {
         createCartItems();
-    };
+    }; 
 });
 
 // when access to cart-site is granted, we setup the priceTotal variable and the itemDatabase.
@@ -24,7 +24,7 @@ function removeFromCart(itemKey) {
         // we need to remove items from itemsDb based on the unique time-id we created. 
         // This value is stored as the third index = [2]. Example: ["username", {all item properties}, "item-1557239902725"] 
         if (itemsDb[i][2] == itemKey) {
-            // We remove the item from our Db array.
+            // We remove the item from our Db array. 
             itemsDb.splice(i, 1);
         }
     }
