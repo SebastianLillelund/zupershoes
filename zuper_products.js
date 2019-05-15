@@ -67,17 +67,20 @@ function getAllSizes() {
 }
 // We create a clearfilters/reset function 
 getAllSizes()
+// fires onClick in html-file
 function clearFilters() {
   generateProducts()
   document.getElementById("productsContainer").innerHTML = ""
   listProducts(products)
 }
 // The actual filtering function
+// function fires in html-file onChange.
 function filterBySize() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
   var sizeValue = document.getElementById("sizeFilterSelect").value
   // console.log(typeof sizeValue)
+  generateProducts()
   if (!sizeValue) {
     productsFiltered = products
   } else {
@@ -116,10 +119,12 @@ function getAllColors() {
 
 getAllColors()
 // The actual filtering function
+// function fires in html-file onChange.
 function filterByColor() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
   var colorValue = document.getElementById("colorFilterSelect").value
+  generateProducts()
   if (!colorValue) {
     productsFiltered = products
   } else {
@@ -138,10 +143,13 @@ function filterByColor() {
 // Section related to filtering by price:
 
 // The actual filtering function 
+// function fires in html-file onChange.
 function filterByFromPrice() {
   // clear existing products from DOM
   document.getElementById("productsContainer").innerHTML = ""
   var priceFrom = document.getElementById("priceFrom").value
+
+  generateProducts()
   console.log(priceFrom)
   if (!priceFrom) {
     productsFiltered = products
@@ -154,6 +162,28 @@ function filterByFromPrice() {
   }
   listProducts(productsFiltered)
 }
+
+// The actual filtering function 
+// function fires in html-file onChange.
+function filterByToPrice() {
+  // clear existing products from DOM
+  document.getElementById("productsContainer").innerHTML = ""
+  var priceTo = document.getElementById("priceTo").value
+
+  generateProducts()
+  console.log(priceTo)
+  if (!priceTo) {
+    productsFiltered = products
+  } else {
+    productsFiltered = productsFiltered.filter((product) => {
+      if (product.productPrice >= Number(priceTo)) {
+        return product
+      }
+    })
+  }
+  listProducts(productsFiltered)
+}
+
 
 function setMinAndMaxPrice() {
   var allPrices = []
