@@ -13,7 +13,6 @@ function updateCart(index) {
     // We now assign the element-values to varibales 
     var size = document.getElementById(`size-selection-${index}`).value;
     var color = document.querySelector(`input[name='color-${index}']:checked`).value;
-    var pId = document.getElementById(`submit-${index}`).value;
     var productName = document.getElementById(`product-name-${index}`).innerHTML;
     var productDescription = document.getElementById(`product-description-${index}`).innerHTML;
     var productGender = document.getElementById(`product-gender-${index}`).innerHTML;
@@ -24,7 +23,6 @@ function updateCart(index) {
     var itemToCart = {
         size: size,
         color: color,
-        pId: pId,
         productimage: productimage,
         productName: productName,
         productDescription: productDescription,
@@ -33,8 +31,8 @@ function updateCart(index) {
         productBrand: productBrand,
     }
 
-    // date.now creates a unique "id". We create id's in this way so the user can add e.g. 2x same product.
-    cartDb.push([loggedUser.userName, itemToCart, 'item-' + Date.now()]);
+    // pushing the users information and item selected (itemToCart). - we create a user and product relation.
+    cartDb.push([loggedUser.userName, itemToCart]);
     // We transfer the array to localstorage as with the key 'cart'
     localStorage.setItem('cart', JSON.stringify(cartDb));
 
