@@ -46,16 +46,6 @@ orderBtn.onclick = function () {
     // Store order in locaslStorage under the key name "order".
     localStorage.setItem('order', JSON.stringify(orders));
 
-    // we also want to create a current order to be displayed
-    currentOrder.push(
-        Math.floor(Math.random() * 10000000),
-        itemToOrder,
-        priceTotal,
-        loggedUser,
-        time,
-        true);
-    // Store order in locaslStorage under the key name "order".
-    localStorage.setItem('currentOrder', JSON.stringify(currentOrder));
 
     // When the user presses order we assume payment and redirect to order site:
     window.location.assign('./currentOrder.html')

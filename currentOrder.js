@@ -2,7 +2,7 @@ currentOrderHtml ='';
 
 // method for firing on pageLoad
 document.addEventListener('DOMContentLoaded', function () {
-    currentOrder = JSON.parse(localStorage.getItem('currentOrder'));
+
 // displaying current order / lastest order
 
     // for each order made we create an order html-card element
