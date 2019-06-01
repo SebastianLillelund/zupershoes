@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <body>`
 
     // secondly, we loop through i=orders and every orders embedded array of items. 
-    // Moreover, we then loop through the items array with j
+    // Moreover, we then loop through the items array with j (orders[orders.length-1]["itemsOrder"][j] is = array[3] with username, product and itemID.)
+    // itemsOrder array holds 1) logged user 2) product and 3) itemID
     for (j = 0; orders[orders.length-1]["itemsOrder"].length > j; j++) {
         var item = orders[orders.length-1]["itemsOrder"][j]
         currentOrderHtml +=

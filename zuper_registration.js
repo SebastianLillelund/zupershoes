@@ -1,3 +1,17 @@
+// on page load:  
+window.addEventListener('DOMContentLoaded', function () {
+    // If users are empty = alert,
+    if (localStorage.getItem('users') === null) {
+    }
+    // else = load in the user from localStorage to users array.
+    else {
+        users = JSON.parse(localStorage.getItem('users'));
+        for (let i = 0; i < users.length; i++) {
+            users[i] = new User(users[i].firstName, users[i].lastName, users[i].address, users[i].email, users[i].userName, users[i].userPassword);
+        }
+    };
+});
+
 // We create a binding for each input element so we don't have to use the 'document' object each time
 
 const firstNameUI = document.getElementById('firstName');
